@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-mashwara';
+
+  version: any = 0;
+  increaseVer(){
+    this.version += 1
+  }
 }
