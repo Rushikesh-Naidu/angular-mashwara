@@ -1,0 +1,24 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    background-color: #040008;
+    width: 100vw;
+    height: 18vw;
+    display: flex;
+    align-items: center;
+    animation: slide-up 1s;
+}
+
+.home-icon{
+    position: fixed;
+    width: 8vw;
+    height: 8vw;
+    left: 20vw;
+}
+
+.profile-icon{
+    position: fixed;
+    width: 8vw;
+    height: 8vw;
+    right: 20vw;
+}

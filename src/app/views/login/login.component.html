@@ -1,0 +1,29 @@
+<div class="main-container">
+    <!-- Logo -->
+    <div [class]="otpVerified?'circle-down':'circle'">
+        <img *ngIf="!otpVerified" class="logo" src="assets/images/logo/logo.png" alt="">
+    </div>
+
+    <img *ngIf="otpVerified" class="logo-right" src="assets/images/logo/logo.png" alt="">
+
+    <form [formGroup]="loginForm">
+        
+        <!-- Phone Number -->
+        <div *ngIf="askPhoneNumber" class="phone-div">
+            <p class="enter-number">Enter Phone Number</p>
+            <mat-form-field appearance="outline" class="phone-number">
+                <mat-label>Phone Number</mat-label>
+                <span matPrefix>&nbsp;&nbsp;+91&nbsp;</span>
+                <input matInput oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10);" formControlName="phone" style="color: #ffffff !important;" autofocus (input)="phoneInput()" type="number" (keyup.enter)="getOTP()">
+            </mat-form-field>
+            <button mat-raised-button [disabled]="enableGetOtp" class="phone-button" (click)="getOTP()">Get OTP</button>
+        </div>
+
+        <!-- Verify OTP -->
+        <div *ngIf="askOtp" [class]="otpVerified?'otp-div':'phone-div'">
+            <p class="enter-number">Enter OTP</p>
+            <ng-otp-input class="otp-box" (onInputChange)="onOtpChange($event)" [config]="{length:4, allowNumbersOnly:true, inputStyles:{'width':'13vw', 'height':'13vw', 'font-size':'7vw'}}"></ng-otp-input>
+            <button mat-raised-button class="otp-button" [disabled]="enableVerifyOtp" (click)="verifyOtp()">Verify OTP</button>
+        </div>
+    </form>
+</div>
