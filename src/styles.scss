@@ -35,9 +35,9 @@ $angular-mashwara-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100vh; }
 body { margin: 0; font-family: 'nunito';
-  background-color: #1e272c;
+  background-color: #101010;
   height: 100vh;
 }
 

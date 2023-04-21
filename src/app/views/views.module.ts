@@ -10,6 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { NgOtpInputModule } from 'ng-otp-input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -20,13 +22,15 @@ import { NgOtpInputModule } from 'ng-otp-input';
   imports: [
     CommonModule,
     ViewsRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     NgOtpInputModule,
-    SharedModule
+    SharedModule,
+    MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class ViewsModule { }

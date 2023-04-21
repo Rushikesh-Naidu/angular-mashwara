@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { SharedModule } from './shared/shared.module';
 import { ViewsModule } from './views/views.module';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { ViewsModule } from './views/views.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ViewsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
