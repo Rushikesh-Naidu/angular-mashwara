@@ -11,7 +11,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { NgOtpInputModule } from 'ng-otp-input';
 import {MatIconModule} from '@angular/material/icon';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -22,15 +21,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   imports: [
     CommonModule,
     ViewsRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     NgOtpInputModule,
     SharedModule,
-    MatIconModule,
-    MatSnackBarModule
+    MatIconModule
   ]
 })
 export class ViewsModule { }

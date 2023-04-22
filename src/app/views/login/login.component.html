@@ -16,7 +16,8 @@
             </div>
 
             <div class="password-div">
-                <input matInput class="cust-password-input" placeholder="Enter Password" formControlName="password" style="color: #ffffff !important;" type="password">
+                <input matInput class="cust-password-input" placeholder="Enter Password" formControlName="password" style="color: #ffffff !important;" [type]="hidePass? 'password':'text'">
+                <mat-icon (click)="hidePass = !hidePass" class="pass-icon"><span *ngIf="!hidePass">visibility</span><span *ngIf="hidePass">visibility_off</span></mat-icon>
             </div>
             <button mat-raised-button class="verify-button" (click)="verifyCust()">Verify</button>
             <p id="or" class="or-line">OR</p>

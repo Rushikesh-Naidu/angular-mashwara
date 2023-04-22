@@ -1,0 +1,77 @@
+.loader {
+    width: 15vw;
+    height: 15vw;
+    // margin-left: auto;
+    // margin-right: auto;
+    position: fixed;
+  }
+  .loader:before {
+      content: '';
+      width: 15vw;
+      height: 5px;
+      background: #000;
+      opacity: 0.25;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      border-radius: 50%;
+      animation: shadow 0.5s linear infinite;
+    }
+    .loader:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      background: #ffffff;
+      animation: bxSpin 0.5s linear infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 4px;
+    }
+  @keyframes bxSpin {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+    25% {
+      transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+      transform: translateY(18px) scale(1, .9) rotate(45deg);
+      border-bottom-right-radius: 40px;
+    }
+    75% {
+      transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+      transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @keyframes shadow {
+    0%, 100% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.2, 1);
+    }
+  }
+
+.loader-div{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    // background-color: rgba(0, 0, 0, 1) !important;
+    // margin: -10vw;
+}
+
+::ng-deep mat-dialog-container{
+    padding-right: 15vw !important;
+    padding-bottom: 15vw !important;
+    // display: flex; 
+    // align-items: center;
+    // width: 100vw;
+    // height: 100vh;
+    // margin: -10vw;
+    // padding: 45vh 40vw;
+  }

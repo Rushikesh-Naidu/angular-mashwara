@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from './login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoginService } from './login.service';
+import { LoaderService } from 'src/app/shared/loader/loader.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit{
 
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit{
     private router: Router,
     private loginService: LoginService,
     private snack: MatSnackBar,
+    private loader : LoaderService,
   ){
     this.loginForm = this.fb.group({
       phone: ['',[Validators.required]],
@@ -31,30 +33,49 @@ export class LoginComponent implements OnInit{
       setTimeout(()=>{
         this.askPhoneNumber = true;
       },2500)
-      
-
-  }
-
-  verifyCust(){
-    let phoneNum = (this.loginForm.value.phone).toString();
-    if(phoneNum.length == 10){
+    }
+    
+    verifyCust(){
+      let phoneNum = (this.loginForm.value.phone).toString();
+      if(phoneNum.length == 10 && this.loginForm.value.password.length>0){
+      this.loader.open();
       this.loginService.getCustByPhone(phoneNum).subscribe((custData)=>{
-        console.log(custData);
+        this.loader.close();
         if(custData.length>0){
           let passWord = custData[0].password;
 
-          if(passWord == this.loginForm.value.password){
-            localStorage.setItem('custName', custData[0].name);
-            localStorage.setItem('custPhone', custData[0].phoneNumber);
-            localStorage.setItem('custGender', custData[0].gender);
-            localStorage.setItem('custAge', custData[0].age);
-            localStorage.setItem('custDiet', custData[0].diet);
-            this.router.navigate(['home'])
+          if(this.loginForm.value.password.length>0){
+
+            if(passWord == this.loginForm.value.password){
+              localStorage.setItem('custName', custData[0].name);
+              localStorage.setItem('custPhone', custData[0].phoneNumber);
+              localStorage.setItem('custGender', custData[0].gender);
+              localStorage.setItem('custAge', custData[0].age);
+              localStorage.setItem('custDiet', custData[0].diet);
+              this.router.navigate(['home'])
+            } else {
+              this.snack.open("Incorrect Password!", "Ok",{
+                duration: 4000,
+                verticalPosition : 'top'
+               }) 
+            }
+          } else {
+            this.snack.open("Please enter the password", "Ok",{
+              duration: 4000,
+              verticalPosition : 'top'
+             }) 
           }
+        } else {
+           this.snack.open("This number doesn't exist! Check the number again or create a new account....!", "Ok",{
+            duration: 4000,
+            verticalPosition : 'top'
+           })  
         }
+      },(error)=>{
+        this.loader.close();
       })
     } else {
-      this.snack.open("Please Enter Valid Mobile Number","Ok", {
+      this.snack.open("Please Enter Valid Mobile Number and Password","Ok", {
         duration: 4000,
         verticalPosition: "top",
       })

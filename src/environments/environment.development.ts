@@ -1,7 +1,5 @@
-let serverURL = "http://3.108.67.34:1206/"
-let localURL = "http://localhost:1206/"
+let serverURL = "https://devmashwara.onrender.com/"
 
 export const environment = {
-    customerURL : `${localURL}customers/`
+    customerURL : `${serverURL}customers/`
 };
-

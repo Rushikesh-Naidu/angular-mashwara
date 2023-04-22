@@ -4,10 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
 import { SharedModule } from './shared/shared.module';
 import { ViewsModule } from './views/views.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -19,9 +22,20 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     ViewsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
     ],
-  providers: [],
+  providers: [
+    MatSnackBar,
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    { provide: MAT_DIALOG_DATA, useValue: {} }, // <== I had to add this too
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
