@@ -47,12 +47,12 @@ export class LoginComponent implements OnInit{
           if(this.loginForm.value.password.length>0){
 
             if(passWord == this.loginForm.value.password){
+              this.router.navigate(['/home'])
               localStorage.setItem('custName', custData[0].name);
               localStorage.setItem('custPhone', custData[0].phoneNumber);
               localStorage.setItem('custGender', custData[0].gender);
               localStorage.setItem('custAge', custData[0].age);
               localStorage.setItem('custDiet', custData[0].diet);
-              this.router.navigate(['home'])
             } else {
               this.snack.open("Incorrect Password!", "Ok",{
                 duration: 4000,
@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit{
   }
 
   signUp(){
-    window.location.reload();
+    this.router.navigate(['register-user'])
   }
 
 }

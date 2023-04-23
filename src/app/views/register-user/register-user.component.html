@@ -1,0 +1,75 @@
+<div class="main-container">
+
+    <div class="circle">
+        <img class="logo" src="assets/images/logo/logo.png" alt="">
+    </div>
+
+    
+    <form [formGroup]="registerForm">
+        <div *ngIf="createAcc" class="fadein">
+            <p class="sign-in-head">Sign Up</p>
+
+            <div class="div">
+                <mat-label class="label">Name:</mat-label>
+                <input matInput placeholder="Enter Your Name" formControlName="name" class="input-tag" type="text">
+            </div>
+
+            <div class="div">
+                <mat-label class="label">Contact Number:</mat-label>
+                <input matInput placeholder="Enter Your Phone Number" min="1000000000" oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10);" formControlName="phone" class="input-tag" type="number">
+                <!-- <p class="pass-dont-match" *ngIf="notValidPhone"><span style="color: red;">Invalid Phone Number!</span></p> -->
+            </div>
+
+            <div class="div">
+                <mat-label class="label">Password:</mat-label>
+                <input matInput placeholder="Enter Your Password" (input)="rePasswordShow()" formControlName="password" class="input-tag" [type]="hidePass? 'password':'text'">
+                <mat-icon (click)="hidePass = !hidePass" class="pass-icon"><span *ngIf="!hidePass">visibility</span><span *ngIf="hidePass">visibility_off</span></mat-icon>
+            </div>
+
+            <div *ngIf="showRePassword" class="re-enter-password-div">
+                <mat-label class="label">Re-Enter Password:</mat-label>
+                <input matInput placeholder="Confirm Your Password" (input)="reEnteredPassword()" formControlName="rePassword" class="input-tag" [type]="hideRePass? 'password':'text'">
+                <mat-icon (click)="hideRePass = !hideRePass" class="pass-icon"><span *ngIf="!hideRePass">visibility</span><span *ngIf="hideRePass">visibility_off</span></mat-icon>
+                <p class="pass-dont-match" *ngIf="showMes"><span style="color: red;" *ngIf="passDontMatch">Passwords Do Not Match!</span><span style="color: green;" *ngIf="!passDontMatch">Passwords Match!</span></p>
+            </div>
+
+            <div class="div">
+                <mat-label class="label">Email:</mat-label>
+                <input matInput title="Invalid Email" (input)="validateEmail()" placeholder="Enter Your Email ID" required formControlName="email" class="input-tag" type="email">
+                <!-- <p class="pass-dont-match" *ngIf="showEMesg"><span style="color: red;">Enter Valid Email!</span></p> -->
+            </div>
+
+            <div class="div">
+                <mat-label class="label">Age:</mat-label>
+                <input matInput placeholder="Enter Your Age" formControlName="age" class="input-tag" type="number">
+            </div>
+            
+            <div class="div">
+                <mat-label class="label">Gender:</mat-label>
+                <select formControlName="gender" class="input-tag" style="width:87.2vw">
+                    <option value="" selected>Female</option>
+                    <option value="1">Male</option>
+                    <option value="0">Others</option>
+                </select>
+            </div>
+
+            <div class="div">
+                <mat-label class="label">Diet:</mat-label>
+                <select formControlName="diet" class="input-tag" style="width:87.2vw">
+                    <option value="" selected>Any</option>
+                    <option value="Veg">Veg</option>
+                    <option value="Non-Veg">Non-Veg</option>
+                </select>
+            </div>
+
+            <button mat-raised-button class="create-account-button" (click)="createAccount()">Create Account</button>
+            <p id="or" class="or-line">OR</p>
+            <button mat-raised-button class="create-account-button" (click)="goToSign()">Sign-In</button>
+
+        </div>
+
+    </form>
+
+    <div class="bottom"></div>
+
+</div>

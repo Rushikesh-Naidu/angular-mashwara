@@ -35,4 +35,9 @@ export class LoginService {
   getCustByPhone(phone:any):Observable<any>{
     return this.http.get(`${customerURL}custPhone?phoneNumber=${phone}`)
   }
+
+  // Create User
+  postUserDetails(body:any):Observable<any>{
+    return this.http.post(`${customerURL}`, body)
+  }
 }

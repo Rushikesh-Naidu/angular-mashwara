@@ -11,12 +11,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { NgOtpInputModule } from 'ng-otp-input';
 import {MatIconModule} from '@angular/material/icon';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterUserComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     NgOtpInputModule,
     SharedModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule
   ]
 })
 export class ViewsModule { }

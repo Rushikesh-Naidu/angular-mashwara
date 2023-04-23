@@ -1,0 +1,173 @@
+.main-container{
+    height: 100vh;
+}
+
+.circle{
+    position: relative;
+    // background-color: #1B0040;
+    background: linear-gradient(to bottom right, #9d50bb, #6e48aa);
+    top: 15vw;
+    width: 24vw;
+    height: 24vw;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    animation: down-and-up 1.5s;
+    display: flex;
+    align-items: center;
+}
+
+@keyframes down-and-up {
+    0%{
+        top: 20vw;
+    }
+    50%{
+        top: 150vw;
+    }
+    100%{
+        top: 15vw;
+    }
+}
+
+.logo{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 80%;
+}
+
+.fadein{
+    animation: fade-in 0.5s;
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.sign-in-head{
+    position: relative;
+    font-family: 'nunito';
+    color: #ffffff;
+    top: 15vw;
+    width: 100%;
+    height: auto;
+    font-size: 7vw;
+    text-align: center;
+}
+
+.div{
+    position: relative;
+    width: 84vw;
+    top: 15vw;
+    margin-bottom: 5vw;
+}
+
+.label{
+    font-size: 6vw;
+    color: #ffffff;
+    margin-left: 6.4vw;
+}
+
+.input-tag{
+    position: relative;
+    width: 84vw;
+    order: 1;
+    border: #ffffff solid 1px !important;
+    border-radius: 8px;
+    background-color: #1D2630;
+    height: 16vw;
+    color: #ffffff;
+    left: 6.4vw;
+    font-family: 'nunito';
+    font-size: 6vw;
+    padding-left: 2vw;
+}
+
+.re-enter-password-div{
+    position: relative;
+    width: 84vw;
+    top: 15vw;
+    margin-bottom: 5vw;   
+    animation: slide 0.3s;
+}
+
+@keyframes slide {
+    0%{
+        top: 10vw;
+    }
+    100%{
+        top:15vw
+    }
+}
+
+.pass-icon{
+    position: absolute;
+    right: -5vw;
+    top: 14vw;
+    color: #ffffff;
+}
+
+.pass-dont-match{
+    position: relative;
+    font-size: 4vw;
+    left: 6.4vw;
+    width: 87.2vw;
+}
+
+.create-account-button{
+    top: 25vw;
+    position: relative;
+    width: 87.2vw;
+    height: 16vw;
+    left: 6.4vw;
+    font-size: 6vw;
+    font-family: 'nunito';
+    color: #ffffff !important;
+    background: linear-gradient(to bottom right, #9d50bb, #6e48aa)
+}
+
+
+.or-line{
+    position: relative;
+    top: 25vw;
+}
+
+#or{
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    font-size: 6vw;
+    font-family: 'nunito';
+  }
+  #or:before, #or:after{
+    content: "";
+    left: 6.4vw;
+    flex: 1 1;
+    border-bottom: 1px #ffffff solid;
+    margin: auto;
+    margin-left: 6.4vw;
+    margin-right: 6.4vw;
+    color: #ffffff;
+    font-size: 7vw;
+  }
+  #or:before {
+    margin-right: 10px
+  }
+  #or:after {
+    margin-left: 10px
+  }
+
+.bottom{
+    position: relative;
+    bottom: 0;
+    height: 35vw;
+    margin-top: 30vw;
+    width: 100vw;
+}
