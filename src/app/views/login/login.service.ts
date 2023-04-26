@@ -11,7 +11,7 @@ const httpOptions = {
   headers: new HttpHeaders({
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
-    Authorization: 'my-auth-token',
+    'Authorization': 'my-auth-token',
   }),
 };
 

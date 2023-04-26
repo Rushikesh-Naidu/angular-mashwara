@@ -77,7 +77,7 @@
               "browserTarget": "angular-mashwara:build:development"
             },
             "options": {
-              "browserTarget": "move-safe:build",
+              "browserTarget": "angular-mashwara:build",
               "proxyConfig": "src/proxy.config.json"
             }
           },
